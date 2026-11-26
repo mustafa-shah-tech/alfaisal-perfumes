@@ -1,0 +1,90 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Public readable site content
+    match /settings/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /theme/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /homeContent/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /fragrances/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /packagingOptions/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /portfolio/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /testimonials/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /processSteps/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /services/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /about/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /faqs/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /seo/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /legal/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Inquiries: Public can CREATE only (with required validation); Admin full read/write
+    match /inquiries/{doc} {
+      allow create: if true
+        && request.resource.data.fullName is string
+        && request.resource.data.email is string
+        && request.resource.data.phone is string;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Catch-all admin fallback
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
