@@ -24,8 +24,8 @@ const config: Config = {
         borders: "var(--color-bd)",
       },
       fontFamily: {
-        serif: ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
-        sans: ["Inter", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "Times New Roman", "serif"],
+        sans: ["var(--font-inter)", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"],
       },
       keyframes: {
         fadeUp: {

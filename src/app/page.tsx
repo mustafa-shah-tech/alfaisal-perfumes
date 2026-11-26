@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ShieldCheck, Droplets, Layers, Clock, ArrowRight } from 'lucide-react';
 import PublicLayout from '@/components/layout/PublicLayout';
 import type {
   HomeContent,
@@ -23,7 +24,7 @@ import { useSettings } from '@/hooks/useSettings';
 import FragranceCard from '@/components/fragrances/FragranceCard';
 import FragranceModal from '@/components/fragrances/FragranceModal';
 
-// ─── Default Fallback Data for Flawless First-Run ───────────────────────────
+// ─── Default Fallback Data ────────────────────────────────────────────────
 const DEFAULT_HOME_CONTENT: HomeContent = {
   heroTitle: 'Your Name. Your Scent. Your Perfume Brand.',
   heroSubtitle: 'We build your perfume business, from the first fragrance to the finished bottle.',
@@ -31,15 +32,15 @@ const DEFAULT_HOME_CONTENT: HomeContent = {
   heroCtaText: 'Get a Free Quote',
   heroSecondaryCtaText: 'See How It Works',
   trustStrip: [
-    { icon: '✦', text: 'Your Brand Name on Every Bottle' },
-    { icon: '◈', text: 'Premium Concentration (EDP / EDT)' },
-    { icon: '❖', text: 'Low Minimum Order Quantities' },
-    { icon: '✧', text: 'Fast, Personal Turnkey Service' },
+    { icon: 'shield', text: 'Your Brand Name on Every Bottle' },
+    { icon: 'droplets', text: 'Premium Concentration (EDP / EDT)' },
+    { icon: 'layers', text: 'Low Minimum Order Quantities' },
+    { icon: 'clock', text: 'Fast, Personal Turnkey Service' },
   ],
   whatWeDoTitle: 'Private-Label Spray Perfume Manufacturing',
   whatWeDoText:
     'Alfaisal Perfumes creates custom-branded spray perfumes (EDP / EDT) for other businesses. You bring your brand name, and we manufacture the perfumes under that brand: fragrance formulation, bottle selection, cap pairing, custom label finishing, and luxury presentation box production.',
-  whyChooseTitle: 'Why Visionary Brands Partner With Alfaisal',
+  whyChooseTitle: 'Why Fragrance Brands Partner With Alfaisal',
   whyChooseItems: [
     {
       title: 'Artisan Oil Formulations',
@@ -62,7 +63,7 @@ const DEFAULT_HOME_CONTENT: HomeContent = {
       icon: '04',
     },
   ],
-  ctaTitle: 'Ready to Launch Your Own Signature Perfume Brand?',
+  ctaTitle: 'Ready to Launch Your Signature Perfume Brand?',
   ctaText:
     'Whether you run a boutique, fashion salon, or are launching a new consumer brand, we make custom fragrance manufacturing straightforward, prestigious, and profitable.',
   sectionVisibility: {
@@ -280,8 +281,8 @@ export default function HomePage() {
   return (
     <PublicLayout>
       {/* ══════════ HERO SECTION ══════════ */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-[var(--color-dark-bg)] text-white">
-        {/* Subtle Luxury Pattern / Gradient Background */}
+      <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[var(--color-dark-bg)] text-white">
+        {/* Atmosphere Background */}
         <div className="absolute inset-0">
           {homeContent.heroImage ? (
             <Image
@@ -290,38 +291,34 @@ export default function HomePage() {
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-35"
+              className="object-cover opacity-25"
             />
           ) : (
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#241E1A] via-[#14110F] to-[#0A0807]" />
+            <div className="absolute inset-0 bg-[#14110F]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-bg)] via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#14110F]/60 via-transparent to-[#14110F]" />
         </div>
 
-        {/* Ambient Subtle Accent Light */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--color-accent)]/10 blur-[120px] rounded-full pointer-events-none" />
-
         {/* Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 backdrop-blur-sm mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse" />
-            <span className="text-[11px] font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 mb-6">
+            <span className="text-xs font-medium tracking-wide text-[var(--color-accent)]">
               Bespoke Private Label Perfumes (EDP / EDT)
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.08] mb-6">
             {homeContent.heroTitle}
           </h1>
 
-          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-[#D1C9BE] font-light leading-relaxed mb-10">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#D1C9BE] font-normal leading-relaxed mb-10">
             {homeContent.heroSubtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+              className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
             >
               {homeContent.heroCtaText || 'Get a Free Quote'}
             </Link>
@@ -331,38 +328,36 @@ export default function HomePage() {
                 const el = document.getElementById('how-it-works');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase text-[#FAF7F2] border border-[#524940] hover:bg-white/10 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#FAF7F2] border border-[#453D34] hover:bg-white/5 transition-colors duration-150 flex items-center justify-center gap-2"
             >
               <span>{homeContent.heroSecondaryCtaText || 'See How It Works'}</span>
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
             </button>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity">
-          <span className="text-[9px] tracking-widest uppercase text-[#A0988D] mb-1">Scroll</span>
-          <div className="w-4 h-7 rounded-full border border-[#524940] flex items-start justify-center p-1">
-            <div className="w-1 h-2 rounded-full bg-[var(--color-accent)] animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* ══════════ TRUST STRIP ══════════ */}
       {vis?.trustStrip !== false && homeContent.trustStrip && (
-        <section className="bg-white border-y border-[var(--color-borders)] py-6 sm:py-8">
+        <section className="bg-white border-y border-[var(--color-borders)] py-6 sm:py-7">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-center text-center">
-              {homeContent.trustStrip.map((item, idx) => (
-                <div key={idx} className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
-                  <span className="text-[var(--color-accent)] font-serif text-xl">{item.icon}</span>
-                  <span className="text-xs sm:text-sm font-medium text-[var(--color-primary-text)] tracking-wide">
-                    {item.text}
-                  </span>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center">
+              {homeContent.trustStrip.map((item, idx) => {
+                const iconsMap: Record<string, typeof ShieldCheck> = {
+                  shield: ShieldCheck,
+                  droplets: Droplets,
+                  layers: Layers,
+                  clock: Clock,
+                };
+                const IconComponent = iconsMap[item.icon] || ShieldCheck;
+                return (
+                  <div key={idx} className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+                    <IconComponent className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-[var(--color-primary-text)]">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -370,25 +365,24 @@ export default function HomePage() {
 
       {/* ══════════ WHAT WE DO ══════════ */}
       {vis?.whatWeDo !== false && (
-        <section className="py-20 md:py-28 bg-[var(--color-background)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+        <section className="py-20 md:py-24 bg-[var(--color-background)]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
               Private Label Perfume House
             </span>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-primary-text)] tracking-tight">
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[var(--color-primary-text)] tracking-tight">
               {homeContent.whatWeDoTitle}
             </h2>
-            <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-8" />
-            <p className="text-base sm:text-lg text-[var(--color-secondary-text)] leading-relaxed font-normal">
+            <p className="mt-6 text-base sm:text-lg text-[var(--color-secondary-text)] leading-relaxed font-normal">
               {homeContent.whatWeDoText}
             </p>
-            <div className="mt-10">
+            <div className="mt-8">
               <Link
                 href="/services"
-                className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] group"
+                className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] transition-colors"
               >
-                Learn more about our turnkey services
-                <span className="ml-1.5 transform group-hover:translate-x-1 transition-transform">→</span>
+                <span>Learn more about our turnkey services</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
@@ -397,30 +391,29 @@ export default function HomePage() {
 
       {/* ══════════ OUR PROCESS ══════════ */}
       {vis?.process !== false && steps && (
-        <section id="how-it-works" className="py-20 md:py-28 bg-[var(--color-surface)] border-y border-[var(--color-borders)]">
+        <section id="how-it-works" className="py-20 md:py-24 bg-[var(--color-surface)] border-y border-[var(--color-borders)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Five Simple Steps
               </span>
-              <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary-text)]">
+              <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-normal text-[var(--color-primary-text)]">
                 Our Creation Process
               </h2>
-              <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-              <p className="text-sm sm:text-base text-[var(--color-secondary-text)]">
+              <p className="mt-4 text-sm sm:text-base text-[var(--color-secondary-text)]">
                 We make launching a professional private perfume brand straightforward and transparent.
               </p>
             </div>
 
             {/* Desktop 5-Column Timeline */}
             <div className="hidden lg:grid grid-cols-5 gap-6 relative">
-              <div className="absolute top-10 left-12 right-12 h-0.5 bg-[var(--color-borders)] z-0" />
+              <div className="absolute top-7 left-12 right-12 h-px bg-[var(--color-borders)] z-0" />
               {steps.map((step, idx) => (
                 <div key={step.id || idx} className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-white border-2 border-[var(--color-accent)] flex items-center justify-center font-serif text-2xl font-bold text-[var(--color-accent)] shadow-md mb-6">
+                  <div className="w-14 h-14 rounded-lg bg-white border border-[var(--color-borders)] flex items-center justify-center font-mono text-sm font-medium text-[var(--color-accent-dark)] shadow-sm mb-5">
                     0{idx + 1}
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-[var(--color-primary-text)] mb-2">
+                  <h3 className="font-serif text-lg font-medium text-[var(--color-primary-text)] mb-2">
                     {step.title}
                   </h3>
                   <p className="text-xs text-[var(--color-secondary-text)] leading-relaxed">
@@ -431,17 +424,17 @@ export default function HomePage() {
             </div>
 
             {/* Mobile / Tablet Vertical Timeline */}
-            <div className="lg:hidden space-y-6">
+            <div className="lg:hidden space-y-4">
               {steps.map((step, idx) => (
                 <div
                   key={step.id || idx}
-                  className="bg-white p-6 rounded-2xl border border-[var(--color-borders)] flex items-start gap-4 shadow-sm"
+                  className="bg-white p-5 rounded-xl border border-[var(--color-borders)] flex items-start gap-4 shadow-sm"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] text-white font-serif text-lg font-bold flex items-center justify-center flex-shrink-0 shadow">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)] text-white font-mono text-xs font-medium flex items-center justify-center flex-shrink-0">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-bold text-[var(--color-primary-text)] mb-1">
+                    <h3 className="font-serif text-base font-medium text-[var(--color-primary-text)] mb-1">
                       {step.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[var(--color-secondary-text)] leading-relaxed">
@@ -457,21 +450,22 @@ export default function HomePage() {
 
       {/* ══════════ FEATURED FRAGRANCES ══════════ */}
       {vis?.featuredFragrances !== false && fragrances.length > 0 && (
-        <section className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <section className="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+              <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Fragrance Library Preview
               </span>
-              <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary-text)]">
+              <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-normal text-[var(--color-primary-text)]">
                 Signature Formulations
               </h2>
             </div>
             <Link
               href="/fragrances"
-              className="mt-4 md:mt-0 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] inline-flex items-center gap-1"
+              className="mt-4 md:mt-0 text-xs font-medium uppercase tracking-wider text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] inline-flex items-center gap-1 transition-colors"
             >
-              Explore Full Collection ({fragrances.length}+) →
+              <span>Explore full collection</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -489,31 +483,30 @@ export default function HomePage() {
 
       {/* ══════════ WHY CHOOSE ALFAISAL ══════════ */}
       {vis?.whyChoose !== false && homeContent.whyChooseItems && (
-        <section className="py-20 md:py-28 bg-[var(--color-dark-bg)] text-white">
+        <section className="py-20 md:py-24 bg-[var(--color-dark-bg)] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs font-medium tracking-wider text-[var(--color-accent)] uppercase">
                 The Alfaisal Difference
               </span>
-              <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-white">
+              <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-normal text-white">
                 {homeContent.whyChooseTitle}
               </h2>
-              <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {homeContent.whyChooseItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#1C1815] border border-[#2D2722] rounded-2xl p-8 hover:border-[var(--color-accent)]/50 transition-colors"
+                  className="bg-[#1C1815] border border-[#2D2722] rounded-xl p-6 hover:border-[var(--color-accent)]/40 transition-colors"
                 >
-                  <span className="font-serif text-3xl font-bold text-[var(--color-accent)] block mb-4">
+                  <span className="font-mono text-xs font-medium text-[var(--color-accent)] block mb-4">
                     {item.icon}
                   </span>
-                  <h3 className="font-serif text-xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-lg font-medium text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#A0988D] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#A0988D] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -525,36 +518,35 @@ export default function HomePage() {
 
       {/* ══════════ BRANDS WE'VE BUILT ══════════ */}
       {vis?.portfolio !== false && portfolio.length > 0 && (
-        <section className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+        <section className="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
               Client Portfolio
             </span>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary-text)]">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-normal text-[var(--color-primary-text)]">
               Brands We’ve Built
             </h2>
-            <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {portfolio.slice(0, 3).map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl overflow-hidden border border-[var(--color-borders)] shadow-sm hover:shadow-lg transition-all group"
+                className="bg-white rounded-xl overflow-hidden border border-[var(--color-borders)] shadow-sm hover:border-[var(--color-accent)]/40 transition-colors group"
               >
                 <div className="relative aspect-[16/10] bg-[var(--color-dark-bg)]">
                   <Image
                     src={item.imageUrl || placeholderImage(600, 450, item.brandName, 'brand')}
                     alt={item.brandName}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-[var(--color-primary-text)] mb-2">
+                <div className="p-5">
+                  <h3 className="font-serif text-lg font-medium text-[var(--color-primary-text)] mb-1.5">
                     {item.brandName}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[var(--color-secondary-text)] line-clamp-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--color-secondary-text)] line-clamp-2 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -565,9 +557,10 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/portfolio"
-              className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-dark)] hover:text-[var(--color-accent)]"
+              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] transition-colors"
             >
-              View all private-label case studies →
+              <span>View all private-label case studies</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </section>
@@ -575,29 +568,28 @@ export default function HomePage() {
 
       {/* ══════════ TESTIMONIALS ══════════ */}
       {vis?.testimonials !== false && testimonials.length > 0 && (
-        <section className="py-20 md:py-28 bg-[var(--color-surface)]/70 border-t border-[var(--color-borders)]">
+        <section className="py-20 md:py-24 bg-[var(--color-surface)]/70 border-t border-[var(--color-borders)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Reputation & Trust
               </span>
-              <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary-text)]">
+              <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-normal text-[var(--color-primary-text)]">
                 What Brand Owners Say
               </h2>
-              <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((t) => (
                 <div
                   key={t.id}
-                  className="bg-white rounded-2xl p-8 border border-[var(--color-borders)] shadow-sm flex flex-col justify-between"
+                  className="bg-white rounded-xl p-6 sm:p-7 border border-[var(--color-borders)] shadow-sm flex flex-col justify-between"
                 >
-                  <p className="text-sm text-[var(--color-secondary-text)] italic leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[var(--color-secondary-text)] italic leading-relaxed mb-6">
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div className="pt-4 border-t border-[var(--color-borders)]/60">
-                    <p className="font-serif font-bold text-[var(--color-primary-text)] text-base">
+                    <p className="font-serif font-medium text-[var(--color-primary-text)] text-base">
                       {t.name}
                     </p>
                     <p className="text-xs text-[var(--color-accent-dark)] font-medium mt-0.5">
@@ -614,17 +606,17 @@ export default function HomePage() {
       {/* ══════════ FINAL CTA BAND ══════════ */}
       {vis?.cta !== false && (
         <section className="py-20 md:py-24 bg-[var(--color-dark-bg)] text-white text-center relative overflow-hidden">
-          <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+          <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight leading-tight">
               {homeContent.ctaTitle}
             </h2>
-            <p className="text-base sm:text-lg text-[#D1C9BE] leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-[#D1C9BE] leading-relaxed font-normal">
               {homeContent.ctaText}
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
               >
                 Request a Free Quote
               </Link>
@@ -633,7 +625,7 @@ export default function HomePage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white transition-colors duration-150 flex items-center justify-center gap-2"
                 >
                   <span>Chat on WhatsApp</span>
                 </a>

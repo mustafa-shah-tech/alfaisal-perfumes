@@ -14,7 +14,7 @@ export default function FragranceCard({ fragrance, onClick }: FragranceCardProps
     <button
       type="button"
       onClick={() => onClick?.(fragrance)}
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-[var(--color-borders)] bg-white text-left transition-all duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 fade-up"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-borders)] bg-white text-left transition-colors duration-200 hover:border-[var(--color-accent)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
       aria-label={`View details for ${fragrance.name}`}
     >
       {/* Image */}
@@ -24,29 +24,29 @@ export default function FragranceCard({ fragrance, onClick }: FragranceCardProps
           alt={fragrance.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover"
         />
         {/* Gender tag */}
-        <span className="absolute top-3 right-3 rounded-full bg-[var(--color-dark-bg)]/80 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur-sm">
+        <span className="absolute top-3 right-3 rounded-md bg-[var(--color-dark-bg)]/85 px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-white backdrop-blur-sm">
           {fragrance.gender}
         </span>
       </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="font-serif text-lg font-semibold text-[var(--color-primary-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200">
+        <h3 className="font-serif text-lg font-medium text-[var(--color-primary-text)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
           {fragrance.name}
         </h3>
 
         {/* Family badge */}
-        <span className="inline-flex w-fit rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-3 py-0.5 text-xs font-medium text-[var(--color-accent-dark)]">
+        <span className="inline-flex w-fit rounded-md border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/10 px-2.5 py-0.5 text-[11px] font-medium text-[var(--color-accent-dark)]">
           {fragrance.family}
         </span>
 
         {/* Top notes preview */}
         {fragrance.notesTop && (
-          <p className="mt-1 text-xs text-[var(--color-secondary-text)] line-clamp-2">
-            <span className="font-medium">Top notes:</span> {fragrance.notesTop}
+          <p className="mt-0.5 text-xs text-[var(--color-secondary-text)] line-clamp-2">
+            <span className="font-medium text-[var(--color-primary-text)]">Top notes:</span> {fragrance.notesTop}
           </p>
         )}
       </div>

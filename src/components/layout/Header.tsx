@@ -92,7 +92,7 @@ export default function Header({ settings }: HeaderProps) {
           <div className="flex items-center space-x-4">
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] shadow-sm hover:shadow transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
             >
               Get a Free Quote
             </Link>
@@ -148,7 +148,7 @@ export default function Header({ settings }: HeaderProps) {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center py-3 rounded-full text-sm font-semibold tracking-wider uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors"
+                  className="w-full text-center py-2.5 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors"
                 >
                   Get a Free Quote
                 </Link>

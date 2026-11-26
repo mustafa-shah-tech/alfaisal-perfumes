@@ -10,6 +10,8 @@
     "seed": "npx tsx scripts/seed.ts"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.6.1",
     "firebase": "^13.4.0",

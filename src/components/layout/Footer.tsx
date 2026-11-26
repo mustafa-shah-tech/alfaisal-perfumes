@@ -155,7 +155,7 @@ export default function Footer({ settings }: FooterProps) {
                     href={settings.socialLinks.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-8 w-8 rounded-full bg-[#201C19] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:bg-[#2D2723] transition-all"
+                    className="h-8 w-8 rounded-lg bg-[#201C19] border border-[#2D2723] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/40 transition-colors"
                     aria-label="Instagram"
                   >
                     <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -168,7 +168,7 @@ export default function Footer({ settings }: FooterProps) {
                     href={settings.socialLinks.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-8 w-8 rounded-full bg-[#201C19] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:bg-[#2D2723] transition-all"
+                    className="h-8 w-8 rounded-lg bg-[#201C19] border border-[#2D2723] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/40 transition-colors"
                     aria-label="Facebook"
                   >
                     <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@ export default function Footer({ settings }: FooterProps) {
                     href={settings.socialLinks.tiktok}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-8 w-8 rounded-full bg-[#201C19] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:bg-[#2D2723] transition-all"
+                    className="h-8 w-8 rounded-lg bg-[#201C19] border border-[#2D2723] flex items-center justify-center text-[#A0988D] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/40 transition-colors"
                     aria-label="TikTok"
                   >
                     <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">

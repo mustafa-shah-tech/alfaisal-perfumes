@@ -56,8 +56,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses = cn(
-      "inline-flex items-center justify-center font-sans font-medium rounded-md",
-      "transition-all duration-200 ease-in-out",
+      "inline-flex items-center justify-center font-sans font-medium rounded-lg",
+      "transition-colors duration-150 ease-in-out",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
       "disabled:opacity-50 disabled:pointer-events-none",
       "select-none whitespace-nowrap",
