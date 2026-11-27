@@ -9,10 +9,11 @@ import { NAV_LINKS } from '@/lib/constants';
 
 interface HeaderProps {
   settings: SiteSettings;
+  mobileMenuOpen?: boolean;
+  onMenuToggle?: () => void;
 }
 
-export default function Header({ settings }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export default function Header({ settings, mobileMenuOpen = false, onMenuToggle }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -23,11 +24,6 @@ export default function Header({ settings }: HeaderProps) {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close mobile menu on page change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
 
   const logoConfig = settings.logo || { type: 'text', text: 'ALFAISAL' };
 
@@ -100,10 +96,11 @@ export default function Header({ settings }: HeaderProps) {
             {/* Mobile Hamburger Button */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={onMenuToggle}
               className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-[var(--color-primary-text)] hover:bg-[var(--color-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-push-nav"
             >
               <svg
                 className="w-6 h-6 transition-transform duration-200"
@@ -121,49 +118,6 @@ export default function Header({ settings }: HeaderProps) {
           </div>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className={`lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-30 animate-fadeIn ${isScrolled ? 'top-[68px]' : 'top-[80px]'}`}>
-          <div className="bg-[var(--color-background)] border-b border-[var(--color-borders)] px-4 sm:px-6 py-5 shadow-xl max-h-[calc(100dvh-80px)] overflow-y-auto">
-            <nav className="flex flex-col space-y-1.5">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`text-base font-medium min-h-[44px] flex items-center px-3 rounded-lg transition-colors ${
-                      isActive
-                        ? 'bg-[var(--color-surface)] text-[var(--color-accent)] font-semibold'
-                        : 'text-[var(--color-primary-text)] hover:bg-[var(--color-surface)]'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <div className="pt-4 mt-2 border-t border-[var(--color-borders)] flex flex-col space-y-3">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full min-h-[44px] flex items-center justify-center rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors"
-                >
-                  Get a Free Quote
-                </Link>
-                <Link
-                  href="/admin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-center text-xs text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)] min-h-[36px] flex items-center justify-center"
-                >
-                  Admin Portal →
-                </Link>
-              </div>
-            </nav>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
