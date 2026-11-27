@@ -74,9 +74,9 @@ export default function ServicesPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-24">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Private Label Perfume Services
           </span>
@@ -84,13 +84,13 @@ export default function ServicesPage() {
             {content.title}
           </h1>
           <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-          <p className="text-base sm:text-lg text-[var(--color-secondary-text)] leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[var(--color-secondary-text)] leading-relaxed">
             {content.intro}
           </p>
         </div>
 
         {/* Process Detail Sections */}
-        <div className="space-y-16 md:space-y-24 mb-24">
+        <div className="space-y-12 sm:space-y-16 md:space-y-24 mb-16 sm:mb-24">
           {content.sections.map((section, idx) => {
             const isEven = idx % 2 === 1;
             return (
@@ -147,7 +147,7 @@ export default function ServicesPage() {
         </div>
 
         {/* What's Included Card Grid */}
-        <div className="bg-[var(--color-surface)]/60 rounded-3xl border border-[var(--color-borders)] p-8 sm:p-12 md:p-16 mb-24">
+        <div className="bg-[var(--color-surface)]/60 rounded-2xl sm:rounded-3xl border border-[var(--color-borders)] p-6 sm:p-10 md:p-16 mb-16 sm:mb-24">
           <div className="max-w-3xl mb-12">
             <span className="text-xs font-semibold tracking-widest text-[var(--color-accent)] uppercase">
               Full Turnkey Solution

@@ -42,7 +42,8 @@ export default function AdminSidebar({ isOpen, onClose, unreadInquiriesCount = 0
           <button
             type="button"
             onClick={onClose}
-            className="lg:hidden text-[#6B6459] hover:text-white"
+            className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-[#6B6459] hover:text-white hover:bg-[#201C19]"
+            aria-label="Close admin sidebar"
           >
             ✕
           </button>

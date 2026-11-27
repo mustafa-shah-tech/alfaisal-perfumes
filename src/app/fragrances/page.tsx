@@ -246,9 +246,9 @@ export default function FragrancesPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title and Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Private Label Olfactory Library
           </span>
@@ -262,16 +262,16 @@ export default function FragrancesPage() {
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="bg-[var(--color-surface)]/70 backdrop-blur-sm rounded-2xl border border-[var(--color-borders)] p-6 mb-12 space-y-6">
+        <div className="bg-[var(--color-surface)]/70 backdrop-blur-sm rounded-2xl border border-[var(--color-borders)] p-4 sm:p-6 mb-10 sm:mb-12 space-y-5 sm:space-y-6">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Gender Filter Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-white/70 rounded-full border border-[var(--color-borders)] w-fit self-center sm:self-auto overflow-x-auto">
+            <div className="flex items-center gap-1 p-1 bg-white/70 rounded-full border border-[var(--color-borders)] w-fit max-w-full self-center md:self-auto overflow-x-auto">
               {['All', ...FRAGRANCE_GENDERS].map((gender) => (
                 <button
                   key={gender}
                   type="button"
                   onClick={() => setSelectedGender(gender)}
-                  className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 whitespace-nowrap ${
+                  className={`px-3.5 sm:px-4 min-h-[36px] text-xs font-semibold rounded-full transition-all duration-200 whitespace-nowrap ${
                     selectedGender === gender
                       ? 'bg-[var(--color-accent)] text-white shadow-sm'
                       : 'text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)]'

@@ -14,9 +14,9 @@ export default function Footer({ settings }: FooterProps) {
   const logoConfig = settings.logo || { type: 'text', text: 'ALFAISAL' };
 
   return (
-    <footer className="bg-[var(--color-dark-bg)] text-[#D1C9BE] border-t border-[#2A2520] pt-16 pb-12 mt-auto">
+    <footer className="bg-[var(--color-dark-bg)] text-[#D1C9BE] border-t border-[#2A2520] pt-12 sm:pt-16 pb-10 sm:pb-12 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-14 border-b border-[#2A2520]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 pb-10 sm:pb-14 border-b border-[#2A2520]">
           {/* Brand Info */}
           <div className="space-y-4">
             <Link href="/" className="inline-block group">
@@ -195,11 +195,11 @@ export default function Footer({ settings }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#827A70] gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#827A70] gap-4 text-center sm:text-left">
           <p>
             {settings.footerText || `© ${currentYear} Alfaisal Perfumes. All rights reserved.`}
           </p>
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link href="/privacy" className="hover:text-[#D1C9BE] transition-colors">
               Privacy Policy
             </Link>

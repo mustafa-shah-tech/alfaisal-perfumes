@@ -21,7 +21,7 @@ export default function WhatsAppButton({
   return (
     <aside
       aria-label="Direct WhatsApp Contact"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-3"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3"
     >
       {/* Tooltip on desktop */}
       <div
@@ -43,7 +43,7 @@ export default function WhatsAppButton({
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
-        className="relative flex items-center justify-center w-13 h-13 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20ba5a] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+        className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20ba5a] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
         aria-label="Chat with Alfaisal Perfumes on WhatsApp"
       >
         {/* WhatsApp Icon */}

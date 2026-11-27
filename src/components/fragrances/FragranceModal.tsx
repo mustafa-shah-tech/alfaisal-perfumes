@@ -44,7 +44,7 @@ export default function FragranceModal({ fragrance, whatsappNumber, onClose }: F
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4"
       onClick={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
@@ -52,19 +52,19 @@ export default function FragranceModal({ fragrance, whatsappNumber, onClose }: F
       aria-modal="true"
       aria-label={`${fragrance.name} details`}
     >
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl bg-white shadow-xl border border-[var(--color-borders)]">
+      <div className="relative w-full max-w-2xl max-h-[92dvh] overflow-y-auto rounded-xl bg-white shadow-xl border border-[var(--color-borders)]">
         {/* Close button */}
         <button
           ref={closeRef}
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[var(--color-primary-text)] shadow-sm transition-colors hover:bg-[var(--color-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-white/95 text-[var(--color-primary-text)] shadow-sm transition-colors hover:bg-[var(--color-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Image */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-xl bg-[var(--color-surface)]">
+        <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-t-xl bg-[var(--color-surface)]">
           <Image
             src={fragrance.imageUrl || placeholderImage(600, 450, fragrance.name, 'bottle')}
             alt={fragrance.name}
@@ -75,7 +75,7 @@ export default function FragranceModal({ fragrance, whatsappNumber, onClose }: F
         </div>
 
         {/* Content */}
-        <div className="p-6 md:p-8">
+        <div className="p-5 sm:p-6 md:p-8">
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <span className="rounded-md border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/10 px-2.5 py-0.5 text-xs font-medium text-[var(--color-accent-dark)]">
               {fragrance.family}
@@ -131,7 +131,7 @@ export default function FragranceModal({ fragrance, whatsappNumber, onClose }: F
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href={`/contact?fragrance=${encodeURIComponent(fragrance.name)}`}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[var(--color-accent)] px-5 py-2.5 text-xs font-medium tracking-wide uppercase text-white transition-colors hover:bg-[var(--color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
+              className="inline-flex flex-1 min-h-[44px] items-center justify-center gap-2 rounded-lg bg-[var(--color-accent)] px-5 py-2.5 text-xs font-medium tracking-wide uppercase text-white transition-colors hover:bg-[var(--color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
             >
               Request This Fragrance
             </Link>
@@ -140,7 +140,7 @@ export default function FragranceModal({ fragrance, whatsappNumber, onClose }: F
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#25D366] px-5 py-2.5 text-xs font-medium tracking-wide uppercase text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+                className="inline-flex flex-1 min-h-[44px] items-center justify-center gap-2 rounded-lg border border-[#25D366] px-5 py-2.5 text-xs font-medium tracking-wide uppercase text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
               >
                 Ask on WhatsApp
               </a>

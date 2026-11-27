@@ -281,7 +281,7 @@ export default function HomePage() {
   return (
     <PublicLayout>
       {/* ══════════ HERO SECTION ══════════ */}
-      <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[var(--color-dark-bg)] text-white">
+      <section className="relative min-h-[80svh] lg:min-h-[88vh] flex items-center justify-center overflow-hidden bg-[var(--color-dark-bg)] text-white">
         {/* Atmosphere Background */}
         <div className="absolute inset-0">
           {homeContent.heroImage ? (
@@ -300,25 +300,25 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 mb-6">
-            <span className="text-xs font-medium tracking-wide text-[var(--color-accent)]">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 sm:pt-28 sm:pb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 mb-5 sm:mb-6">
+            <span className="text-[11px] sm:text-xs font-medium tracking-wide text-[var(--color-accent)]">
               Bespoke Private Label Perfumes (EDP / EDT)
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.1] sm:leading-[1.08] mb-5 sm:mb-6">
             {homeContent.heroTitle}
           </h1>
 
-          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#D1C9BE] font-normal leading-relaxed mb-10">
+          <p className="max-w-2xl mx-auto text-sm sm:text-lg text-[#D1C9BE] font-normal leading-relaxed mb-8 sm:mb-10">
             {homeContent.heroSubtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
             >
               {homeContent.heroCtaText || 'Get a Free Quote'}
             </Link>
@@ -328,7 +328,7 @@ export default function HomePage() {
                 const el = document.getElementById('how-it-works');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#FAF7F2] border border-[#453D34] hover:bg-white/5 transition-colors duration-150 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto min-h-[44px] px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#FAF7F2] border border-[#453D34] hover:bg-white/5 transition-colors duration-150 flex items-center justify-center gap-2"
             >
               <span>{homeContent.heroSecondaryCtaText || 'See How It Works'}</span>
             </button>
@@ -338,9 +338,9 @@ export default function HomePage() {
 
       {/* ══════════ TRUST STRIP ══════════ */}
       {vis?.trustStrip !== false && homeContent.trustStrip && (
-        <section className="bg-white border-y border-[var(--color-borders)] py-6 sm:py-7">
+        <section className="bg-white border-y border-[var(--color-borders)] py-5 sm:py-7">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-center text-center">
               {homeContent.trustStrip.map((item, idx) => {
                 const iconsMap: Record<string, typeof ShieldCheck> = {
                   shield: ShieldCheck,
@@ -365,21 +365,21 @@ export default function HomePage() {
 
       {/* ══════════ WHAT WE DO ══════════ */}
       {vis?.whatWeDo !== false && (
-        <section className="py-20 md:py-24 bg-[var(--color-background)]">
+        <section className="py-14 sm:py-20 md:py-24 bg-[var(--color-background)]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
               Private Label Perfume House
             </span>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[var(--color-primary-text)] tracking-tight">
+            <h2 className="mt-3 font-serif text-2xl sm:text-4xl md:text-5xl font-normal text-[var(--color-primary-text)] tracking-tight">
               {homeContent.whatWeDoTitle}
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-[var(--color-secondary-text)] leading-relaxed font-normal">
+            <p className="mt-5 sm:mt-6 text-sm sm:text-lg text-[var(--color-secondary-text)] leading-relaxed font-normal">
               {homeContent.whatWeDoText}
             </p>
-            <div className="mt-8">
+            <div className="mt-7 sm:mt-8">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] transition-colors"
+                className="inline-flex items-center gap-1.5 min-h-[40px] text-xs font-medium uppercase tracking-wider text-[var(--color-accent-dark)] hover:text-[var(--color-accent)] transition-colors"
               >
                 <span>Learn more about our turnkey services</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -391,9 +391,9 @@ export default function HomePage() {
 
       {/* ══════════ OUR PROCESS ══════════ */}
       {vis?.process !== false && steps && (
-        <section id="how-it-works" className="py-20 md:py-24 bg-[var(--color-surface)] border-y border-[var(--color-borders)]">
+        <section id="how-it-works" className="py-14 sm:py-20 md:py-24 bg-[var(--color-surface)] border-y border-[var(--color-borders)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
               <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Five Simple Steps
               </span>
@@ -450,8 +450,8 @@ export default function HomePage() {
 
       {/* ══════════ FEATURED FRAGRANCES ══════════ */}
       {vis?.featuredFragrances !== false && fragrances.length > 0 && (
-        <section className="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <section className="py-14 sm:py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12">
             <div>
               <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Fragrance Library Preview
@@ -483,9 +483,9 @@ export default function HomePage() {
 
       {/* ══════════ WHY CHOOSE ALFAISAL ══════════ */}
       {vis?.whyChoose !== false && homeContent.whyChooseItems && (
-        <section className="py-20 md:py-24 bg-[var(--color-dark-bg)] text-white">
+        <section className="py-14 sm:py-20 md:py-24 bg-[var(--color-dark-bg)] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
               <span className="text-xs font-medium tracking-wider text-[var(--color-accent)] uppercase">
                 The Alfaisal Difference
               </span>
@@ -518,8 +518,8 @@ export default function HomePage() {
 
       {/* ══════════ BRANDS WE'VE BUILT ══════════ */}
       {vis?.portfolio !== false && portfolio.length > 0 && (
-        <section className="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+        <section className="py-14 sm:py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
               Client Portfolio
             </span>
@@ -568,9 +568,9 @@ export default function HomePage() {
 
       {/* ══════════ TESTIMONIALS ══════════ */}
       {vis?.testimonials !== false && testimonials.length > 0 && (
-        <section className="py-20 md:py-24 bg-[var(--color-surface)]/70 border-t border-[var(--color-borders)]">
+        <section className="py-14 sm:py-20 md:py-24 bg-[var(--color-surface)]/70 border-t border-[var(--color-borders)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
               <span className="text-xs font-medium tracking-wider text-[var(--color-accent-dark)] uppercase">
                 Reputation & Trust
               </span>
@@ -605,9 +605,9 @@ export default function HomePage() {
 
       {/* ══════════ FINAL CTA BAND ══════════ */}
       {vis?.cta !== false && (
-        <section className="py-20 md:py-24 bg-[var(--color-dark-bg)] text-white text-center relative overflow-hidden">
+        <section className="py-14 sm:py-20 md:py-24 bg-[var(--color-dark-bg)] text-white text-center relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight leading-tight">
               {homeContent.ctaTitle}
             </h2>
             <p className="text-sm sm:text-base text-[#D1C9BE] leading-relaxed font-normal">
@@ -616,7 +616,7 @@ export default function HomePage() {
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] transition-colors duration-150"
               >
                 Request a Free Quote
               </Link>
@@ -625,7 +625,7 @@ export default function HomePage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white transition-colors duration-150 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto min-h-[44px] px-7 py-3 rounded-lg text-xs font-medium tracking-wide uppercase text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white transition-colors duration-150 flex items-center justify-center gap-2"
                 >
                   <span>Chat on WhatsApp</span>
                 </a>

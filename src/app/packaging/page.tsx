@@ -84,9 +84,9 @@ export default function PackagingPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Bespoke Hardware & Presentation
           </span>
@@ -94,13 +94,13 @@ export default function PackagingPage() {
             Packaging & Branding Options
           </h1>
           <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-          <p className="text-base text-[var(--color-secondary-text)] leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-secondary-text)] leading-relaxed">
             Your brand visual identity begins where the customer touches the bottle. Explore our customizable bottles, closures, label materials, and rigid gift boxes engineered to rival international perfume houses.
           </p>
         </div>
 
         {/* Options Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-14 sm:mb-20">
           {options.map((item) => (
             <div
               key={item.id}
@@ -137,7 +137,7 @@ export default function PackagingPage() {
         </div>
 
         {/* Customization Advisory */}
-        <div className="bg-[var(--color-surface)] rounded-3xl p-8 sm:p-12 border border-[var(--color-borders)] flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-[var(--color-surface)] rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 border border-[var(--color-borders)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
           <div className="max-w-2xl space-y-3">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[var(--color-primary-text)]">
               Have a Specific Custom Bottle or Cap in Mind?
@@ -148,7 +148,7 @@ export default function PackagingPage() {
           </div>
           <Link
             href="/contact"
-            className="whitespace-nowrap px-8 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] shadow-sm transition-colors"
+            className="w-full md:w-auto text-center whitespace-nowrap min-h-[44px] inline-flex items-center justify-center px-6 sm:px-8 py-3 rounded-lg text-xs font-semibold tracking-wider uppercase text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] shadow-sm transition-colors"
           >
             Consult with Our Engineers
           </Link>

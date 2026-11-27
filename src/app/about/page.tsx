@@ -64,9 +64,9 @@ export default function AboutPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Our Heritage & Craft
           </span>
@@ -106,7 +106,7 @@ export default function AboutPage() {
         </div>
 
         {/* Mission Statement Callout */}
-        <div className="bg-[var(--color-surface)] rounded-3xl p-8 sm:p-12 md:p-16 border border-[var(--color-borders)] text-center max-w-4xl mx-auto mb-20 relative overflow-hidden">
+        <div className="bg-[var(--color-surface)] rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 border border-[var(--color-borders)] text-center max-w-4xl mx-auto mb-14 sm:mb-20 relative overflow-hidden">
           <span className="text-xs font-semibold tracking-widest text-[var(--color-accent)] uppercase">
             Our Core Mission
           </span>

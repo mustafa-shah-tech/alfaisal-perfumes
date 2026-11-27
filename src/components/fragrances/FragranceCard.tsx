@@ -23,7 +23,7 @@ export default function FragranceCard({ fragrance, onClick }: FragranceCardProps
           src={fragrance.imageUrl || placeholderImage(400, 530, fragrance.name, 'bottle')}
           alt={fragrance.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover"
         />
         {/* Gender tag */}

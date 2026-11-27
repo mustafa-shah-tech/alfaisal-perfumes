@@ -17,9 +17,9 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
   const isHome = pathname === '/';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--color-background)] text-[var(--color-primary-text)] font-sans selection:bg-[var(--color-accent)] selection:text-white">
+    <div className="min-h-screen flex flex-col overflow-x-hidden bg-[var(--color-background)] text-[var(--color-primary-text)] font-sans selection:bg-[var(--color-accent)] selection:text-white">
       <Header settings={settings} />
-      <main className={`flex-1 ${isHome ? 'pt-0' : 'pt-24 md:pt-28'}`}>
+      <main className={`flex-1 ${isHome ? 'pt-0' : 'pt-20 sm:pt-24 md:pt-28'}`}>
         {children}
       </main>
       <Footer settings={settings} />

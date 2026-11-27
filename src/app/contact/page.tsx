@@ -129,9 +129,9 @@ function ContactFormContent() {
     : '';
 
   return (
-    <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Page Title */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
         <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
           Private Label Consultation
         </span>
@@ -139,14 +139,14 @@ function ContactFormContent() {
           Request a Quote & Scent Consultation
         </h1>
         <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-        <p className="text-base text-[var(--color-secondary-text)] leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--color-secondary-text)] leading-relaxed">
           Tell us about your brand vision, intended bottle style, and target fragrances. We will prepare an itemized private-label proposal and schedule your discovery sample kit.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left Column: Form */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[var(--color-borders)] shadow-sm">
+        <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-[var(--color-borders)] shadow-sm">
           {submitted ? (
             <div className="text-center py-12 space-y-6">
               <div className="w-16 h-16 rounded-full bg-[var(--color-accent)]/15 text-[var(--color-accent)] mx-auto flex items-center justify-center">

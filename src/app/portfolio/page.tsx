@@ -66,9 +66,9 @@ export default function PortfolioPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Client Brand Showcase
           </span>
@@ -76,13 +76,13 @@ export default function PortfolioPage() {
             Brands We’ve Built
           </h1>
           <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-          <p className="text-base text-[var(--color-secondary-text)] leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-secondary-text)] leading-relaxed">
             From emerging fashion houses and boutique salons to retail entrepreneurs, we have brought distinctive fragrance concepts from initial idea to commercially successful retail products.
           </p>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-14 sm:mb-20">
           {items.map((item) => (
             <div
               key={item.id}
@@ -106,12 +106,12 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              <div className="p-8 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-8 flex-1 flex flex-col justify-between">
                 <p className="text-sm text-[var(--color-secondary-text)] leading-relaxed">
                   {item.description}
                 </p>
 
-                <div className="mt-6 pt-5 border-t border-[var(--color-borders)]/60 flex items-center justify-between">
+                <div className="mt-6 pt-5 border-t border-[var(--color-borders)]/60 flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs text-[var(--color-secondary-text)]">
                     Full Turnkey Private Label
                   </span>

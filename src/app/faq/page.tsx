@@ -113,9 +113,9 @@ export default function FAQPage() {
 
   return (
     <PublicLayout>
-      <div className="py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 sm:py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-accent)] uppercase">
             Everything You Need To Know
           </span>
@@ -123,13 +123,13 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
           <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-6 mb-6" />
-          <p className="text-base text-[var(--color-secondary-text)] leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-secondary-text)] leading-relaxed">
             Transparent answers regarding minimum order quantities, production timelines, fragrance formulation, and custom bottle packaging.
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-4 mb-20">
+        <div className="space-y-3 sm:space-y-4 mb-14 sm:mb-20">
           {faqs.map((faq) => {
             const isOpen = !!openIds[faq.id];
             return (
@@ -140,7 +140,7 @@ export default function FAQPage() {
                 <button
                   type="button"
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-inset"
+                  className="w-full px-4 py-4 sm:px-6 sm:py-5 min-h-[44px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-inset"
                   aria-expanded={isOpen}
                 >
                   <span className="font-serif text-lg sm:text-xl font-semibold text-[var(--color-primary-text)]">
