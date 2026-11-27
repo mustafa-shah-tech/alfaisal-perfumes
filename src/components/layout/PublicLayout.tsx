@@ -2,6 +2,7 @@
 
 import { ReactNode, useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import Header from './Header';
@@ -56,13 +57,24 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
       >
         {/* Drawer Header */}
         <div className="px-5 py-4 border-b border-[#2A2520] flex items-center justify-between">
-          <div className="flex flex-col leading-none">
-            <span className="font-serif text-lg font-bold tracking-[0.2em] text-[#FAF7F2]">
-              {logoText}
-            </span>
-            <span className="font-sans text-[9px] tracking-[0.3em] text-[var(--color-accent)] uppercase mt-1">
-              PERFUMES
-            </span>
+          <div className="flex items-center gap-2.5">
+            <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-accent)]/40 bg-[#14110F]">
+              <Image
+                src="/images/alfaisal-perfume-logo.jpeg"
+                alt={settings.businessName || 'Alfaisal Perfumes'}
+                fill
+                sizes="36px"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-serif text-base font-bold tracking-[0.18em] text-[#FAF7F2]">
+                {logoText}
+              </span>
+              <span className="font-sans text-[9px] tracking-[0.28em] text-[var(--color-accent)] uppercase mt-1">
+                PERFUMES
+              </span>
+            </div>
           </div>
           <button
             type="button"

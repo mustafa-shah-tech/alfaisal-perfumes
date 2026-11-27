@@ -73,6 +73,10 @@ export const metadata: Metadata = {
     "white label fragrances",
     "Alfaisal Perfumes",
   ],
+  icons: {
+    icon: "/images/alfaisal-perfume-logo.jpeg",
+    apple: "/images/alfaisal-perfume-logo.jpeg",
+  },
   openGraph: {
     title: "Alfaisal Perfumes — Custom Private Label Perfumes",
     description:

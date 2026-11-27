@@ -26,19 +26,21 @@ export default function Header({ settings, mobileMenuOpen = false, onMenuToggle 
   }, []);
 
   const logoConfig = settings.logo || { type: 'text', text: 'ALFAISAL' };
+  const isHome = pathname === '/';
+  const overDarkHero = isHome && !isScrolled;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[var(--color-background)]/90 backdrop-blur-md shadow-sm border-b border-[var(--color-borders)] py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-[var(--color-background)]/95 backdrop-blur-md shadow-sm border-b border-[var(--color-borders)] py-3'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group flex flex-col items-start focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded">
+          <Link href="/" className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded">
             {logoConfig.type === 'image' && logoConfig.imageUrl ? (
               <div className="relative h-10 w-40">
                 <Image
@@ -50,14 +52,32 @@ export default function Header({ settings, mobileMenuOpen = false, onMenuToggle 
                 />
               </div>
             ) : (
-              <div className="flex flex-col leading-none">
-                <span className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.2em] text-[var(--color-primary-text)] group-hover:text-[var(--color-accent)] transition-colors">
-                  {logoConfig.text || 'ALFAISAL'}
-                </span>
-                <span className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-accent)] uppercase mt-0.5 font-medium">
-                  PERFUMES
-                </span>
-              </div>
+              <>
+                <div className="relative h-10 w-10 sm:h-11 sm:w-11 flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-accent)]/40 bg-[#14110F]">
+                  <Image
+                    src="/images/alfaisal-perfume-logo.jpeg"
+                    alt={settings.businessName || 'Alfaisal Perfumes'}
+                    fill
+                    sizes="44px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col leading-none">
+                  <span
+                    className={`font-serif text-xl sm:text-2xl font-bold tracking-[0.2em] transition-colors ${
+                      overDarkHero
+                        ? 'text-[#FAF7F2] group-hover:text-[var(--color-accent)]'
+                        : 'text-[var(--color-primary-text)] group-hover:text-[var(--color-accent)]'
+                    }`}
+                  >
+                    {logoConfig.text || 'ALFAISAL'}
+                  </span>
+                  <span className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-accent)] uppercase mt-0.5 font-medium">
+                    PERFUMES
+                  </span>
+                </div>
+              </>
             )}
           </Link>
 
@@ -72,6 +92,8 @@ export default function Header({ settings, mobileMenuOpen = false, onMenuToggle 
                   className={`text-xs xl:text-sm font-medium tracking-wide transition-colors duration-200 relative py-1.5 whitespace-nowrap ${
                     isActive
                       ? 'text-[var(--color-accent)] font-semibold'
+                      : overDarkHero
+                      ? 'text-[#D1C9BE] hover:text-white'
                       : 'text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)]'
                   }`}
                 >
@@ -97,7 +119,11 @@ export default function Header({ settings, mobileMenuOpen = false, onMenuToggle 
             <button
               type="button"
               onClick={onMenuToggle}
-              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-[var(--color-primary-text)] hover:bg-[var(--color-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              className={`lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] ${
+                overDarkHero
+                  ? 'text-[#FAF7F2] hover:bg-white/10'
+                  : 'text-[var(--color-primary-text)] hover:bg-[var(--color-surface)]'
+              }`}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-push-nav"

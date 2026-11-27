@@ -19,25 +19,36 @@ export default function Footer({ settings }: FooterProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 pb-10 sm:pb-14 border-b border-[#2A2520]">
           {/* Brand Info */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block group">
+            <Link href="/" className="inline-flex items-center gap-3 group">
               {logoConfig.type === 'image' && logoConfig.imageUrl ? (
                 <div className="relative h-10 w-40">
                   <Image
                     src={logoConfig.imageUrl}
                     alt={settings.businessName || 'Alfaisal Perfumes'}
                     fill
-                    className="object-contain brightness-0 invert"
+                    className="object-contain"
                   />
                 </div>
               ) : (
-                <div className="flex flex-col leading-none">
-                  <span className="font-serif text-2xl font-bold tracking-[0.2em] text-[#FAF7F2] group-hover:text-[var(--color-accent)] transition-colors">
-                    {logoConfig.text || 'ALFAISAL'}
-                  </span>
-                  <span className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-accent)] uppercase mt-0.5">
-                    PERFUMES
-                  </span>
-                </div>
+                <>
+                  <div className="relative h-11 w-11 flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-accent)]/40 bg-[#14110F]">
+                    <Image
+                      src="/images/alfaisal-perfume-logo.jpeg"
+                      alt={settings.businessName || 'Alfaisal Perfumes'}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col leading-none">
+                    <span className="font-serif text-2xl font-bold tracking-[0.2em] text-[#FAF7F2] group-hover:text-[var(--color-accent)] transition-colors">
+                      {logoConfig.text || 'ALFAISAL'}
+                    </span>
+                    <span className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-accent)] uppercase mt-0.5">
+                      PERFUMES
+                    </span>
+                  </div>
+                </>
               )}
             </Link>
             <p className="text-sm text-[#A0988D] leading-relaxed max-w-sm">

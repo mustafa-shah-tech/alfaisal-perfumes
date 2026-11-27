@@ -28,7 +28,7 @@ import FragranceModal from '@/components/fragrances/FragranceModal';
 const DEFAULT_HOME_CONTENT: HomeContent = {
   heroTitle: 'Your Name. Your Scent. Your Perfume Brand.',
   heroSubtitle: 'We build your perfume business, from the first fragrance to the finished bottle.',
-  heroImage: '',
+  heroImage: '/images/alfaisal-perfume-bg.jpeg',
   heroCtaText: 'Get a Free Quote',
   heroSecondaryCtaText: 'See How It Works',
   trustStrip: [
@@ -284,19 +284,15 @@ export default function HomePage() {
       <section className="relative min-h-[80svh] lg:min-h-[88vh] flex items-center justify-center overflow-hidden bg-[var(--color-dark-bg)] text-white">
         {/* Atmosphere Background */}
         <div className="absolute inset-0">
-          {homeContent.heroImage ? (
-            <Image
-              src={homeContent.heroImage}
-              alt="Alfaisal Perfumes Hero"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-25"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-[#14110F]" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#14110F]/60 via-transparent to-[#14110F]" />
+          <Image
+            src={homeContent.heroImage || '/images/alfaisal-perfume-bg.jpeg'}
+            alt="Alfaisal Perfumes bespoke workshop and custom fragrance bottles"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#14110F]/80 via-[#14110F]/55 to-[#14110F]/95" />
         </div>
 
         {/* Hero Content */}
