@@ -74,7 +74,11 @@ export const metadata: Metadata = {
     "Alfaisal Perfumes",
   ],
   icons: {
-    icon: "/images/alfaisal-perfume-logo.jpeg",
+    icon: [
+      { url: "/images/alfaisal-perfume-logo.ico", type: "image/x-icon" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/images/alfaisal-perfume-logo.ico",
     apple: "/images/alfaisal-perfume-logo.jpeg",
   },
   openGraph: {
